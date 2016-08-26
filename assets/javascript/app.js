@@ -31,7 +31,7 @@ var game = {
         this.incorrectAnswers = 0;
         this.unanswered = 0;
         this.number = 5;
-        $("#start").empty();
+        $("#start").addClass("hide");
         $("#timeRem").empty();
         $("#question").empty();
         $(".answers").empty();
@@ -40,8 +40,8 @@ var game = {
     updateQuestion: function(idx) {
     	this.number = 5;
     	// Clear any buttons, text, or images that might've been present
-        $("#start").empty();
-        $("#reset").empty();
+        $("#start").addClass("hide");
+        $("#reset").addClass("hide");
         $("#status").empty();
         // Show time remaining
         $("#timeRem").html("Time Remaining: " + this.number);
@@ -66,7 +66,7 @@ var game = {
     	$("#question").html("All done, here's how you did!");
     	$("#status").html("Correct Answers: " + this.correctAnswers + "<br>Incorrect Answers: " + this.incorrectAnswers + "<br>Unanswered: " + this.unanswered);
     	// Display reset button
-    	$("#reset").html("Start Over?");
+    	$("#reset").html("Start Over?").removeClass("hide");
     },
 
     showStatus: function(idx){
@@ -134,7 +134,7 @@ $(document).ready(function() {
     			game.updateQuestion(questionIdx);
     			run();
     		}
-    		}, 5000);
+    		}, 1000);
     }
 
     // Start Game button click
