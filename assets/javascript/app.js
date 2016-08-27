@@ -2,7 +2,7 @@ var game = {
     correctAnswers: 0,
     incorrectAnswers: 0,
     unanswered: 0,
-    number: 5,
+    number: 24,
     result: "unanswered",
     questions: [{
         text: "sample question 1",
@@ -30,7 +30,7 @@ var game = {
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;
         this.unanswered = 0;
-        this.number = 5;
+        this.number = 24;
         $("#start").addClass("hide");
         $("#timeRem").empty();
         $("#question").empty();
@@ -38,23 +38,23 @@ var game = {
     },
 
     updateQuestion: function(idx) {
-    	this.number = 5;
+    	this.number = 24;
     	// Clear any buttons, text, or images that might've been present
         $("#start").addClass("hide");
         $("#reset").addClass("hide");
         $("#status").empty();
         // Show time remaining
-        $("#timeRem").html("Time Remaining: " + this.number);
+        $("#timeRem").html("Time Remaining: <span id='timer'>" + this.number + "</span>");
         // Update the question's text
         $("#question").html(this.questions[idx].text);
         // Update the answer buttons
         for (var i = 0; i < this.questions[idx].answers.length; i++) {
-            var a = $("<button>");
+            var a = $("<div>");
             a.attr("id", "ans" + i);
             if (i === this.questions[idx].correctIdx) {
-                a.addClass("correct");
+                a.addClass("btn correct");
             } else {
-                a.addClass("incorrect");
+                a.addClass("btn incorrect");
             }
             a.text(this.questions[idx].answers[i]);
             $(".answers").append(a);
@@ -66,7 +66,7 @@ var game = {
     	$("#question").html("All done, here's how you did!");
     	$("#status").html("Correct Answers: " + this.correctAnswers + "<br>Incorrect Answers: " + this.incorrectAnswers + "<br>Unanswered: " + this.unanswered);
     	// Display reset button
-    	$("#reset").html("Start Over?").removeClass("hide");
+    	$("#reset").removeClass("hide");
     },
 
     showStatus: function(idx){
@@ -101,7 +101,6 @@ var game = {
 
 $(document).ready(function() {
     var questionIdx = 0;
-    var currentQues = game.questions[questionIdx];
 
     function run() {
         counter = setInterval(decrement, 1000);
@@ -110,7 +109,7 @@ $(document).ready(function() {
     function decrement() {
         game.number--;
         // Show number of seconds remaining in #timeRem tag
-        $("#timeRem").html("Time Remaining: " + game.number);
+        $("#timeRem").html("Time Remaining: <span id='timer'>" + game.number + "</span>");
         // Timer reaches 0 (unanswered guess case)
         if (game.number === 0) {
             game.result = "unanswered";

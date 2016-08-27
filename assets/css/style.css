@@ -1,0 +1,46 @@
+body{
+	background-image: url("../images/bball-pattern.jpg");
+	background-repeat: repeat;
+	font-family: 'BioRhyme', serif;
+	font-size: 24px;
+}
+#header{
+	font-family: 'Orbitron', sans-serif;
+	font-size: 60px;
+	color: #000000;
+	margin: 50px 0px;
+}
+.container{
+	background-image: url("../images/wood-floor.jpg");
+	background-repeat: repeat;
+	margin-top: 50px;
+	height: 800px;
+}
+
+#timer{
+	display: inline-block;
+	font-family: 'Orbitron', sans-serif;
+	color: #B81F01;
+	background-color: #000000;
+	border-style: solid;
+	border-color: #B81F01;
+	border-width: 1px;
+	width: 60px;
+	padding: 10px 0px;
+}
+
+.btn{
+	width: 60%;
+	padding: 20px 0px;
+	margin: 2px;
+	background: rbga(0,0,0,0);
+	border-radius: 0;
+}
+
+.btn:hover{
+	border-style: groove;
+	border-width: 2px;
+	border-color: #000;
+	background-color: #FFC659;
+	margin: 0px;
+}
