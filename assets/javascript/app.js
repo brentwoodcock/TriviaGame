@@ -126,12 +126,12 @@ var game = {
             case "incorrect":
                 this.incorrectAnswers++;
                 $("#question").html("Incorrect!");
-                $("#status").html("The correct answer was " + this.questions[idx].answers[this.questions[idx].correctIdx] + "<br>").append(img);
+                $("#status").html("The correct answer was " + this.questions[idx].answers[this.questions[idx].correctIdx] + ".<br>").append(img);
                 break;
             case "unanswered":
                 this.unanswered++;
                 $("#question").html("Shot clock violation!");
-                $("#status").html("The correct answer was " + this.questions[idx].answers[this.questions[idx].correctIdx] + "<br>").append(img);
+                $("#status").html("The correct answer was " + this.questions[idx].answers[this.questions[idx].correctIdx] + ".<br>").append(img);
                 break;
             default:
                 break;
